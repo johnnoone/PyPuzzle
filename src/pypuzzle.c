@@ -64,7 +64,7 @@ tuple_to_cvec(PyObject *tuple, PuzzleCvec *cvec)
     Py_ssize_t i = 0;
     for (i = 0; i < tuple_size; i++) {
         PyObject *item = PyTuple_GetItem(tuple, i);
-        cvec_vec[i] = (signed char)PyInt_AsLong(item);
+        cvec_vec[i] = (signed char)PyLong_AsLong(item);
     }
 
     cvec->sizeof_vec = tuple_size;
@@ -105,7 +105,7 @@ compressed_tuple_to_cvec(PyObject *compressed_tuple, PuzzleCompressedCvec *compr
     Py_ssize_t i = 0;
     for (i = 0; i < tuple_size; i++) {
         PyObject *item = PyTuple_GetItem(compressed_tuple, i);
-        cvec_vec[i] = (signed char)PyInt_AsLong(item);
+        cvec_vec[i] = (signed char)PyLong_AsLong(item);
     }
 
     compressed_cvec->sizeof_compressed_vec = tuple_size;
